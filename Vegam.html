@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEGAM Logistics - Delivery Partner</title>
+    <link rel="stylesheet" href="Vegam.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f374653b77.js" crossorigin="anonymous"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="logo">
+                <img src="images/VegamLogo.png" alt="Vegam Logistics" style="width: 150px; height: 100px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#offer" class="nav-link">What We Offer</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <!-- Order ID Input and Track Button -->
+                <li class="order-tracking">
+                    <input type="text" id="order-id" placeholder="Enter Order ID" class="order-input">
+                    <button class="track-btn mx-2" onclick="trackOrder()">Track</button>
+                </li>
+            </ul>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider (Full Width) -->
+    <section class="hero" id="home">
+        <div id="hero-slider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="600">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="hero-slide" style="background-image: url('images/Slider1.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Fast Delivery Solutions</h1>
+                            <p>Partner with VEGAM Logistics for seamless deliveries.</p>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="cta">Get Vegam</a>
+                                <a href="#track" class="track-btn">Track Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: url('images/Slider2.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Track Your Orders</h1>
+                            <p>Real-time tracking for all your deliveries.</p>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="cta">Get Vegam</a>
+                                <a href="#track" class="track-btn">Track Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: url('images/Slider3.jpg');">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <h1>Reliable Partnerships</h1>
+                            <p>Empowering businesses with efficient logistics.</p>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="cta">Get Vegam</a>
+                                <a href="#track" class="track-btn">Track Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#hero-slider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#hero-slider" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>At VEGAM Logistics, we believe that every package tells a story — whether it's a product from a
+                        local seller, a gift from a loved one, or a crucial business shipment. As your trusted delivery
+                        partner, we specialize in fast, reliable, and eco-conscious logistics solutions designed
+                        specifically for small-scale industries, social media businesses, and personalized one-to-one
+                        deliveries.<br>
+
+                        We understand the unique challenges faced by emerging businesses and individual sellers. That’s
+                        why we offer seamless last-mile delivery services, real-time tracking, and a dedicated support
+                        team to ensure your parcels reach their destination safely, quickly, and on time.<br>
+
+                        Our mission is simple: to make logistics accessible, efficient, and stress-free — no matter the
+                        size of your business. From bulk shipments to single orders, VEGAM Logistics is committed to
+                        delivering excellence at every step.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/AboutUs.jpg" alt="VEGAM Logistics Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/ExpressDel.jpg" alt="Express Delivery">
+                    <div class="service-overlay">
+                        <h3>Express Delivery</h3>
+                        <p>Get your packages delivered within hours.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/OrderTrK.jpg" alt="Order Tracking">
+                    <div class="service-overlay">
+                        <h3>Order Tracking</h3>
+                        <p>Track your orders in real-time with ease.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/BuldOrd.jpg" alt="Bulk Shipping">
+                    <div class="service-overlay">
+                        <h3>Bulk Shipping</h3>
+                        <p>Efficient solutions for large-scale deliveries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <h2>What We Offer</h2>
+            <div class="offer-grid">
+                <div class="offer-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Nationwide Coverage</h3>
+                    <p>Delivery services across the country with a vast network.</p>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock assistance for all your delivery needs.</p>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly Options</h3>
+                    <p>Sustainable delivery solutions to reduce carbon footprint.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="trainings1">
+        <div class="container">
+            <h2 class="section-title text-center" style="color: #1e3a8a;">Why Choose Vegam <img
+                    src="images/fb73f86d-747c-46c7-acce-68b587ea447a.jpg" width="100px" height="80px" /></h2>
+            <div class="courses-list">
+                <div class="course-item">
+                    <div class="globe-orb">
+                        <img src="images/VDP.png" alt="VDP Icon" class="course-icon">
+                        <div class="halo-ring"></div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Verified Delivery Partners</h3>
+                        <p>All our delivery partners are identity-verified and background-checked for your safety and
+                            trust.</p>
+                        <a href="#contact" class="course-cta">Contact Now</a>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="globe-orb">
+                        <img src="images/ODMD.png" alt="ODMD icon" class="course-icon">
+                        <div class="halo-ring"></div>
+                    </div>
+                    <div class="course-content">
+                        <h3>On-Demand Delivery</h3>
+                        <p>Get anything delivered to your doorstep instantly with our fast and reliable on-demand
+                            delivery service.</p>
+                        <a href="#contact" class="course-cta">Contact Now</a>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="globe-orb">
+                        <img src="images/Tracking.png" alt="Tracking Icon" class="course-icon">
+                        <div class="halo-ring"></div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Real-Time Order Tracking</h3>
+                        <p>Track your order live from pickup to delivery with real-time updates at every step.</p>
+                        <a href="#contact" class="course-cta">Contact Now</a>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="globe-orb">
+                        <img src="images/TELECAL.png" alt="Calling Icon" class="course-icon">
+                        <div class="halo-ring"></div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Live Chat Support</h3>
+                        <p>Get instant help anytime with our 24/7 live chat and smart chatbot support.</p>
+                        <a href="#contact" class="course-cta">Contact Now</a>
+                    </div>
+                </div>
+                <div class="course-item">
+                    <div class="globe-orb">
+                        <img src="images/Payment.png" alt="Payment Icon" class="course-icon">
+                        <div class="halo-ring"></div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Secure Payment Gateway</h3>
+                        <p>Enjoy hassle-free transactions with our fully secure and encrypted payment gateway.</p>
+                        <a href="#contact" class="course-cta">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="phone" class="form-label">Contact Number</label>
+                        <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}"
+                            placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="client-type" class="form-label">Client Type</label>
+                        <select class="form-control" id="client-type" required>
+                            <option value="" disabled selected>Select client type</option>
+                            <option value="individual">Individual</option>
+                            <option value="small_business">Small Business</option>
+                            <option value="enterprise">Enterprise</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="service-type" class="form-label">Delivery Service Type</label>
+                        <select class="form-control" id="service-type" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="express">Express Delivery</option>
+                            <option value="standard">Standard Delivery</option>
+                            <option value="bulk">Bulk Shipping</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter your city or area"
+                            required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div id="form-message" class="alert d-none mt-3"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 VEGAM Logistics. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        (function () {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+        })();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('.nav-link, .cta, .track-btn').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 40,
+                    behavior: 'smooth'
+                });
+                document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                if (link.classList.contains('nav-link')) {
+                    link.classList.add('active');
+                }
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Active Link on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+                    document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.add('active');
+                }
+            });
+        });
+
+        // Track Order Function (Mock Implementation)
+        function trackOrder() {
+            const orderId = document.getElementById('order-id').value;
+            if (orderId.trim() === '') {
+                alert('Please enter a valid Order ID.');
+                return;
+            }
+            alert(`Tracking Order ID: ${orderId}\n(Status: In Transit)`); // Mock response
+            document.getElementById('order-id').value = ''; // Clear input
+        }
+        ////EMAIL JS CODE
+        (function () {
+            emailjs.init("h87zi5TmTHhTmluEJ"); // Your EmailJS Public Key
+        })();
+
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = document.getElementById("contact-form");
+            const messageDiv = document.getElementById("form-message");
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                client_type: document.getElementById("client-type").value,
+                service_type: document.getElementById("service-type").value,
+                location: document.getElementById("location").value,
+                message: document.getElementById("message").value,
+                time: new Date().toLocaleString()
+            };
+
+
+            // Clear previous messages
+            messageDiv.classList.remove("alert-success", "alert-danger", "d-none");
+            messageDiv.innerHTML = "";
+            console.log("Form submission started");
+
+            // Function to reset form
+            function resetForm() {
+                form.reset();
+                document.getElementById("client-type").selectedIndex = 0;
+                document.getElementById("service-type").selectedIndex = 0;
+                // Fallback: manually clear inputs if reset fails
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("phone").value = "";
+                document.getElementById("client-type").value = "";
+                document.getElementById("service-type").value = "";
+                document.getElementById("location").value = "";
+                document.getElementById("message").value = "";
+                console.log("Form reset executed");
+            }
+
+            // Send email to admin
+            emailjs.send("service_vhu8mkw", "template_qguaw39", formData)
+                .then(function (response) {
+                    console.log("Admin Email Sent Successfully!", response.status, response.text);
+                    // Send auto-reply email
+                    emailjs.send("service_vhu8mkw", "template_e99t15s", formData)
+                        .then(function (response) {
+                            console.log("Auto-reply Sent Successfully!", response.status, response.text);
+                            messageDiv.classList.add("alert-success");
+                            messageDiv.innerHTML = "Your message has been sent successfully!";
+                            resetForm();
+                        }, function (error) {
+                            console.error("Auto-reply Failed:", error.text || error);
+                            messageDiv.classList.add("alert-danger");
+                            messageDiv.innerHTML = "Message sent, but auto-reply failed. Please contact support.";
+                            resetForm();
+                        });
+                }, function (error) {
+                    console.error("Admin Email Failed:", error.text || error);
+                    messageDiv.classList.add("alert-danger");
+                    let errorMessage = "Failed to send message. Please try again.";
+                    if (error.text && error.text.includes("Invalid grant")) {
+                        errorMessage = "Failed to send message. Gmail authentication error. Please contact the administrator to reconnect the Gmail account.";
+                    }
+                    messageDiv.innerHTML = errorMessage;
+                });
+        });
+    </script>
+</body>
+
+</html>
